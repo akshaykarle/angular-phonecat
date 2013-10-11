@@ -1,13 +1,13 @@
 module.exports = function(config){
-    config.set({
+  config.set({
     basePath : '../',
 
     files : [
-      'app/lib/angular/angular.js',
-      'app/lib/angular/angular-*.js',
-      'test/lib/angular/angular-mocks.js',
-      'app/js/**/*.js',
-      'test/unit/**/*.js'
+    'app/lib/angular/angular.js',
+    'app/lib/angular/angular-*.js',
+    'test/lib/angular/angular-mocks.js',
+    'app/js/**/*.js',
+    'test/unit/**/*.js'
     ],
 
     exclude: ['app/lib/angular/angular-scenario.js'],
@@ -16,13 +16,20 @@ module.exports = function(config){
 
     frameworks: ['jasmine'],
 
-    browsers : ['Chrome'],
+    browsers : ['Chrome_without_security'],
+
+    customLaunchers: {
+      Chrome_without_security: {
+        base: 'Chrome',
+        flags: ['--disable-web-security']
+      }
+    },
 
     plugins : [
-      'karma-junit-reporter',
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-jasmine'
+    'karma-junit-reporter',
+    'karma-chrome-launcher',
+    'karma-firefox-launcher',
+    'karma-jasmine'
     ],
 
     junitReporter : {
@@ -30,4 +37,4 @@ module.exports = function(config){
       suite: 'unit'
     }
 
-})}
+  })}
