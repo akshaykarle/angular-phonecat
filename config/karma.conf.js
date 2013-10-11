@@ -16,10 +16,10 @@ module.exports = function(config){
 
     frameworks: ['jasmine'],
 
-    browsers : ['Chrome_without_security'],
+    browsers : ['Chrome', 'Chrome_no_sandbox'],
 
     customLaunchers: {
-      Chrome_without_security: {
+      Chrome_no_sandbox: {
         base: 'Chrome',
         flags: ['--no-sandbox']
       }
